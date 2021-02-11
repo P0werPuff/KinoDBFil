@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,14 @@ namespace KinoDBFil
         {
             _arr = new Label[i_, j_];
             Size = new Size(i_ * 60 + 80, j_ * 55 + 80);
-            Text = "Зал";
+            Text = "Hall";
             for (i = 0; i < i_; i++)
             {
                 for (j = 0; j < j_; j++)
                 {
                     _arr[i, j] = new Label();
                     _arr[i, j].BackColor = Color.DarkGreen;
-                    _arr[i, j].Text = "Сиденье " + (j + 1);
+                    _arr[i, j].Text = "Place " + (j + 1);
                     _arr[i, j].TextAlign = ContentAlignment.MiddleCenter;
                     _arr[i, j].Size = new Size(55, 55);
                     _arr[i, j].BorderStyle = BorderStyle.Fixed3D;
@@ -38,7 +39,7 @@ namespace KinoDBFil
             }
 
             btnB = new Button();
-            btnB.Text = "Назад";
+            btnB.Text = "Back";
             btnB.Size = new Size(80, 30);
             btnB.Location = new Point(j * 55, i * 56);
             btnB.Click += BtnB_Click;
@@ -47,49 +48,44 @@ namespace KinoDBFil
 
         private void BtnB_Click(object sender, EventArgs e)
         {
-            Form1 back = new Form1();
-            back.Show();
+            FormFilm films = new FormFilm();
+            films.Show();
             Hide();
-        }
-
-        private void FormKino_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void FormKino_Click(object sender, EventArgs e)
         {
             var label = (Label)sender;
             var tag = (int[])label.Tag;
-            if (_arr[tag[0], tag[1]].Text != "Выбрано" && _arr[tag[0], tag[1]].Text != "Забронировано")
+            if (_arr[tag[0], tag[1]].Text != "Selected" && _arr[tag[0], tag[1]].Text != "Booked")
             {
-                _arr[tag[0], tag[1]].Text = "Выбрано";
+                _arr[tag[0], tag[1]].Text = "Selected";
                 _arr[tag[0], tag[1]].BackColor = Color.Red;
             }
-            else if (_arr[tag[0], tag[1]].Text == "Выбрано")
+            else if (_arr[tag[0], tag[1]].Text == "Selected")
             {
-                if (MessageBox.Show("Вы уверены что хотите забронировать данное место?", "Бронирование", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to book this place?", "Booking", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     FormTicket ticket = new FormTicket();
                     ticket.Show();
-                    //_arr[tag[0], tag[1]].Text = "Забронировано";
+                    //_arr[tag[0], tag[1]].Text = "Booked";
                     //_arr[tag[0], tag[1]].BackColor = Color.DarkRed;
-                    //MessageBox.Show("Ряд: " + (tag[0] + 1) + ", Сиденье: " + (tag[1] + 1) + " - успешно забронировано!");
+                    //MessageBox.Show("Row: " + (tag[0] + 1) + ", place: " + (tag[1] + 1) + " - successfully booked!");
                 }
                 else
                 {
-                    _arr[tag[0], tag[1]].Text = "Сиденье " + (tag[1] + 1);
+                    _arr[tag[0], tag[1]].Text = "Place " + (tag[1] + 1);
                     _arr[tag[0], tag[1]].BackColor = Color.Green;
                 }
             }
-            else if (_arr[tag[0], tag[1]].Text == "Забронировано")
+            else if (_arr[tag[0], tag[1]].Text == "Booked")
             {
-                MessageBox.Show("Ряд: " + (tag[0] + 1) + ", Сиденье: " + (tag[1] + 1) + " - уже занято!");
+                MessageBox.Show("Row: " + (tag[0] + 1) + ", Place: " + (tag[1] + 1) + " - is already booked!");
             }
             else
             {
-                MessageBox.Show("Ошибка!");
+                MessageBox.Show("Error 404");
             }
         }
     }
-}
+}s

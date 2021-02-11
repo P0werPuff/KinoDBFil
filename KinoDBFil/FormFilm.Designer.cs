@@ -1,6 +1,6 @@
 ﻿namespace KinoDBFil
 {
-    partial class Form1
+    partial class FormFilm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // FormFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormFilm";
+            this.Text = "FormFilm";
+            this.Load += new System.EventHandler(this.FormFilm_Load);
             this.ResumeLayout(false);
 
         }
@@ -44,4 +45,3 @@
         #endregion
     }
 }
-
