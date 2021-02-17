@@ -27,7 +27,7 @@ namespace KinoDBFil
                 {
                     _arr[i, j] = new Label();
                     _arr[i, j].BackColor = Color.DarkGreen;
-                    _arr[i, j].Text = "Place " + (j + 1);
+                    _arr[i, j].Text = "Places " + (j + 1);
                     _arr[i, j].TextAlign = ContentAlignment.MiddleCenter;
                     _arr[i, j].Size = new Size(55, 55);
                     _arr[i, j].BorderStyle = BorderStyle.Fixed3D;
@@ -74,13 +74,13 @@ namespace KinoDBFil
                 }
                 else
                 {
-                    _arr[tag[0], tag[1]].Text = "Place " + (tag[1] + 1);
+                    _arr[tag[0], tag[1]].Text = "Places " + (tag[1] + 1);
                     _arr[tag[0], tag[1]].BackColor = Color.Green;
                 }
             }
             else if (_arr[tag[0], tag[1]].Text == "Booked")
             {
-                MessageBox.Show("Row: " + (tag[0] + 1) + ", Place: " + (tag[1] + 1) + " - is already booked!");
+                MessageBox.Show("Row: " + (tag[0] + 1) + ", Places: " + (tag[1] + 1) + " - is already booked!");
             }
             else
             {
@@ -88,4 +88,4 @@ namespace KinoDBFil
             }
         }
     }
-}s
+}

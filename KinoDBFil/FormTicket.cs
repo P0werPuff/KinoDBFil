@@ -15,6 +15,12 @@ namespace KinoDBFil
         Label lblM, lblP;
         TextBox txtM, txtP;
         Button btn;
+
+        private void FormTicket_Load(object sender, EventArgs e)
+        {
+
+        }
+
         public FormTicket()
         {
             Height = 140;

@@ -37,7 +37,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FormKino";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.FormKino_Load);
             this.ResumeLayout(false);
 
         }

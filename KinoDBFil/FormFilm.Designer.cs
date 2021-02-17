@@ -37,7 +37,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FormFilm";
             this.Text = "FormFilm";
-            this.Load += new System.EventHandler(this.FormFilm_Load);
             this.ResumeLayout(false);
 
         }
